@@ -21,14 +21,15 @@ pipeline {
         }
 
         stage('Deploy Application') {
-            steps {
-                sh '''
-                    docker stop myapp-container || true
-                    docker rm myapp-container || true
-                    docker run -d --name myapp-container -p 8080:8080 myapp:latest
-                '''
-            }
-        }
+    steps {
+        sh '''
+            docker stop myapp-container || true
+            docker rm myapp-container || true
+            docker run -d --name myapp-container -p 8081:8080 myapp:latest
+        '''
+    }
+}
+
     }
 
     post {
